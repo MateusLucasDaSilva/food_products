@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_products/app/presentation/pages/home/home_page.dart';
+import 'package:food_products/app/presentation/app/app_routes.dart';
+import 'package:food_products/app/presentation/app/app_theme.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -8,11 +9,10 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const HomePage(),
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.theme,
+      routes: AppRoutes.routes,
+      initialRoute: AppRoutes.initialRouter,
     );
   }
 }
