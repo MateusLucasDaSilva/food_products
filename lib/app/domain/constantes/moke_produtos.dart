@@ -26,6 +26,5 @@ class MokeProdutos {
     ProductEntity(image: AppImagesPaths.couve, name: 'Couve', price: 19),
     ProductEntity(
         image: AppImagesPaths.berinjela, name: 'Berinjela', price: 27),
-    ProductEntity(image: AppImagesPaths.melancia, name: 'Melancia', price: 9),
   ];
 }

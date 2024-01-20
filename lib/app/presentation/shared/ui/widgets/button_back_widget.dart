@@ -9,16 +9,19 @@ class ButtonBackWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.pop(context),
-      child: Container(
-        height: 40,
-        width: 50,
-        decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primaryContainer,
-            borderRadius: BorderRadius.circular(10)),
-        alignment: Alignment.center,
-        child: Icon(
-          leadingIconData,
-          size: 25,
+      child: Hero(
+        tag: 'back-button',
+        child: Container(
+          height: 40,
+          width: 50,
+          decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.primaryContainer,
+              borderRadius: BorderRadius.circular(10)),
+          alignment: Alignment.center,
+          child: Icon(
+            leadingIconData,
+            size: 25,
+          ),
         ),
       ),
     );

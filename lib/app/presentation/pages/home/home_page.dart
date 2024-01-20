@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_products/app/domain/constantes/moke_produtos.dart';
 import 'package:food_products/app/presentation/pages/home/widgets/list_products_widget.dart';
 import 'package:food_products/app/presentation/pages/home/widgets/title_category_widget.dart';
-import 'package:food_products/app/presentation/shared/ui/widgets/shopping_cart_widget.dart';
+import 'package:food_products/app/presentation/shared/ui/widgets/app_bar_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,18 +11,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const BottomHomeNavigatorBarWidget(),
-      appBar: AppBar(
-        leading: const Icon(
-          Icons.menu,
-          size: 25,
-        ),
-        actions: const <Widget>[
-          ShoppingCartWidget(),
-          SizedBox(
-            width: 20,
-          ),
-        ],
-      ),
+      appBar: const CustomAppBar(leadingIconData: Icons.menu),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20),

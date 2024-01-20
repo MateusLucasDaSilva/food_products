@@ -43,32 +43,35 @@ class ListProducts extends StatelessWidget {
   ) {
     Navigator.of(context).push(
       PageRouteBuilder<dynamic>(
-        pageBuilder: (BuildContext context, Animation<double> animation,
-            Animation<double> secondaryAnimation) {
-          return DetailsProductPage(
-            product: product,
-            colorCard: colorCard,
-          );
-        },
-        transitionsBuilder: (BuildContext context, Animation<double> animation,
-            Animation<double> secondaryAnimation, Widget child) {
-          const Offset begin = Offset(0.0, 1.0);
-          const Offset end = Offset(0.0, 0.0);
-          const Curve curve = Curves.easeInOut;
+          pageBuilder: (BuildContext context, Animation<double> animation,
+              Animation<double> secondaryAnimation) {
+            return DetailsProductPage(
+              product: product,
+              colorCard: colorCard,
+            );
+          },
+          transitionsBuilder: (BuildContext context,
+              Animation<double> animation,
+              Animation<double> secondaryAnimation,
+              Widget child) {
+            const Offset begin = Offset(0.0, 1.0);
+            const Offset end = Offset(0.0, 0.0);
+            const Curve curve = Curves.easeInOut;
 
-          final Animatable<Offset> tween = Tween(begin: begin, end: end).chain(
-            CurveTween(curve: curve),
-          );
+            final Animatable<Offset> tween =
+                Tween(begin: begin, end: end).chain(
+              CurveTween(curve: curve),
+            );
 
-          final Animation<Offset> offsetAnimation = animation.drive(tween);
+            final Animation<Offset> offsetAnimation = animation.drive(tween);
 
-          return SlideTransition(
-            position: offsetAnimation,
-            child: child,
-          );
-        },
-        fullscreenDialog: true,
-      ),
+            return SlideTransition(
+              position: offsetAnimation,
+              child: child,
+            );
+          },
+          fullscreenDialog: true,
+          transitionDuration: const Duration(milliseconds: 300)),
     );
   }
 }
