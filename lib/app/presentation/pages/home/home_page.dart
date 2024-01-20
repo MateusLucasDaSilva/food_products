@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_products/app/domain/constantes/moke_produtos.dart';
-import 'package:food_products/app/presentation/pages/home/widgets/list_produts_widget.dart';
+import 'package:food_products/app/presentation/pages/home/widgets/list_products_widget.dart';
 import 'package:food_products/app/presentation/pages/home/widgets/title_category_widget.dart';
+import 'package:food_products/app/presentation/shared/ui/widgets/shopping_cart_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -15,20 +16,9 @@ class HomePage extends StatelessWidget {
           Icons.menu,
           size: 25,
         ),
-        actions: <Widget>[
-          Container(
-            height: 30,
-            width: 50,
-            decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primaryContainer,
-                borderRadius: BorderRadius.circular(20)),
-            alignment: Alignment.center,
-            child: const Icon(
-              Icons.shopping_cart_outlined,
-              size: 25,
-            ),
-          ),
-          const SizedBox(
+        actions: const <Widget>[
+          ShoppingCartWidget(),
+          SizedBox(
             width: 20,
           ),
         ],

@@ -12,7 +12,8 @@ class MokeProdutos {
     ProductEntity(image: AppImagesPaths.pao, name: 'Pão', price: 8.89),
   ];
   static final List<ProductEntity> frutas = <ProductEntity>[
-    ProductEntity(image: AppImagesPaths.melancia, name: 'Maca', price: 8.89),
+    ProductEntity(
+        image: AppImagesPaths.melancia, name: 'melancia', price: 8.89),
     ProductEntity(image: AppImagesPaths.banana, name: 'Banana', price: 15.89),
     ProductEntity(image: AppImagesPaths.uva, name: 'Uva', price: 13.89),
     ProductEntity(image: AppImagesPaths.laranja, name: 'Laranja', price: 13.89),

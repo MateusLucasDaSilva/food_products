@@ -19,4 +19,10 @@ class ProductEntity {
   String get toStringPriceWithDiscount {
     return '\$${(price - 5).toStringAsFixed(2)}';
   }
+
+  factory ProductEntity.empty() => ProductEntity(
+        image: AppImagesPaths.banana,
+        name: 'Erro',
+        price: 00,
+      );
 }

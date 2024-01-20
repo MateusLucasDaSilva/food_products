@@ -11,6 +11,10 @@ class AppRoutes {
   static Map<String, Widget Function(BuildContext)> routes =
       <String, Widget Function(BuildContext p1)>{
     AppNamedRoutes.INITIAL: (_) => const OnboardPage(),
-    AppNamedRoutes.HOME: (_) => HomePage(),
+    AppNamedRoutes.HOME: (_) => const HomePage(),
   };
+
+  static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
+    return null;
+  }
 }
