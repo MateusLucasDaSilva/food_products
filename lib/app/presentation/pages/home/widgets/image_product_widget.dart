@@ -8,17 +8,13 @@ class ImageProductWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Hero(
-      tag: imageAssetPath,
-      child: Center(
-        child: Container(
-          height: size,
-          width: size,
-          child: Image.asset(
-            imageAssetPath,
-            fit: BoxFit.contain,
-          ),
-        ),
+    return Container(
+      height: size,
+      width: size,
+      alignment: Alignment.center,
+      child: Image.asset(
+        imageAssetPath,
+        fit: BoxFit.contain,
       ),
     );
   }

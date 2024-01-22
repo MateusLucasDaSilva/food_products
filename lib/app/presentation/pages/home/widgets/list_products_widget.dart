@@ -41,12 +41,15 @@ class ListProducts extends StatelessWidget {
     BuildContext context,
     ProductEntity product,
   ) {
+    final List<ProductEntity> listProducts = <ProductEntity>[...products];
+    listProducts.remove(product);
     Navigator.of(context).push(
       PageRouteBuilder<dynamic>(
           pageBuilder: (BuildContext context, Animation<double> animation,
               Animation<double> secondaryAnimation) {
             return DetailsProductPage(
               product: product,
+              products: listProducts,
               colorCard: colorCard,
             );
           },

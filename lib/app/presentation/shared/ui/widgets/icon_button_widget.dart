@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
 
-class ButtonAddProduct extends StatelessWidget {
-  const ButtonAddProduct({
+class IconButtonWidget extends StatelessWidget {
+  final double size;
+  final Icon icon;
+
+  const IconButtonWidget({
     super.key,
+    this.size = 20,
+    required this.icon,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 20,
-      width: 20,
+      height: size,
+      width: size,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(500),
         color: Colors.white,
       ),
-      child: const Icon(
-        Icons.add_outlined,
-        size: 15,
-      ),
+      child: icon,
     );
   }
 }
