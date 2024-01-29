@@ -27,6 +27,7 @@
 Integração com o Firebase Cloud:
 
 Implementação de integração com o Firebase Cloud para armazenamento e gerenciamento de dados em nuvem. Isso inclui a manipulação de dados do usuário, como cadastro de produtos, informações de clientes e histórico de pedidos.
+
 Provider com Gerência de Estado:
 
 Utilização do Provider para uma eficiente gerência de estado no aplicativo. O Provider é uma biblioteca que facilita o compartilhamento de dados entre diferentes partes da sua aplicação, garantindo uma atualização consistente do estado.
@@ -34,6 +35,7 @@ Utilização do Provider para uma eficiente gerência de estado no aplicativo. O
 Integração com o WhatsApp:
 
 Implementação de integração com o WhatsApp para permitir que os usuários enviem pedidos diretamente para o número de WhatsApp da mercearia. Isso pode ser feito utilizando deep links ou API do WhatsApp para agilizar o processo de comunicação entre cliente e vendedor.
+
 Temas (Themes):
 
 Implementação de um sistema de temas para personalização da aparência do aplicativo. Os usuários podem escolher entre diferentes temas de design para adaptar a interface do aplicativo de acordo com suas preferências visuais.
