@@ -7,9 +7,9 @@ class AppTheme {
     colorScheme: ColorScheme.fromSeed(
       seedColor: Colors.deepPurple,
       scrim: AppColors.buttonPrimaryColor,
-      primaryContainer: AppColors.blueGrey,
-      secondaryContainer: AppColors.blueWhite,
-      tertiaryContainer: AppColors.yellowWhite,
+      primary: AppColors.blueGrey,
+      secondary: AppColors.blueWhite,
+      tertiary: AppColors.yellowWhite,
     ),
     useMaterial3: true,
   );

@@ -4,6 +4,7 @@ import 'package:food_products/app/presentation/pages/details_product/widgets/car
 import 'package:food_products/app/presentation/pages/details_product/widgets/drop_down_menu_widget.dart';
 import 'package:food_products/app/presentation/pages/home/widgets/card_product_widget.dart';
 import 'package:food_products/app/presentation/pages/home/widgets/image_product_widget.dart';
+import 'package:food_products/app/presentation/shared/ui/extensions/build_context_extension.dart';
 import 'package:food_products/app/presentation/shared/ui/widgets/app_bar_widget.dart';
 import 'package:food_products/app/presentation/shared/ui/widgets/heard_title_widget.dart';
 
@@ -56,9 +57,7 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
               ),
               Text(
                 'Apresentamos ${widget.product.name}, um item essencial e versátil que eleva sua experiência culinária a novos patamares. Este produto de alta qualidade, cuidadosamente selecionado, é a escolha',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium
+                style: context.textTheme.bodyMedium
                     ?.copyWith(fontWeight: FontWeight.w500),
               ),
               const SizedBox(

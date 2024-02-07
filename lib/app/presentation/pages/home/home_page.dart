@@ -4,40 +4,82 @@ import 'package:food_products/app/presentation/pages/home/widgets/list_products_
 import 'package:food_products/app/presentation/pages/home/widgets/title_category_widget.dart';
 import 'package:food_products/app/presentation/shared/ui/widgets/app_bar_widget.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final PageController _pageController = PageController();
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const BottomHomeNavigatorBarWidget(),
+      bottomNavigationBar:
+          BottomHomeNavigatorBarWidget(pageController: _pageController),
       appBar: const CustomAppBar(leadingIconData: Icons.menu),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            children: <Widget>[
-              const TitleCategoryWidget(category: 'Vegetais Frescos'),
-              ListProducts(
-                  colorCard: Theme.of(context).colorScheme.secondaryContainer,
-                  products: MokeProdutos.vegetais),
-              const SizedBox(
-                height: 30,
-              ),
-              const TitleCategoryWidget(category: 'Frutas Frescas'),
-              ListProducts(
-                products: MokeProdutos.frutas,
-                colorCard: Theme.of(context).colorScheme.tertiaryContainer,
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              const TitleCategoryWidget(category: 'Produtos da Padaria'),
-              ListProducts(
-                  colorCard: Theme.of(context).colorScheme.primaryContainer,
-                  products: MokeProdutos.products)
-            ],
+      body: PageView(
+        controller: _pageController,
+        children: <Widget>[
+          const ProductsView(),
+          Scaffold(
+            body: Container(
+              color: Colors.deepOrange,
+              height: 344,
+              width: 100,
+            ),
           ),
+          Scaffold(
+            body: Container(
+              color: Colors.deepPurple,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ProductsView extends StatelessWidget {
+  const ProductsView({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: <Widget>[
+            const TitleCategoryWidget(category: 'Vegetais Frescos'),
+            ListProducts(
+                colorCard: Theme.of(context).colorScheme.secondary,
+                products: MokeProdutos.vegetais),
+            const SizedBox(
+              height: 30,
+            ),
+            const TitleCategoryWidget(category: 'Frutas Frescas'),
+            ListProducts(
+              products: MokeProdutos.frutas,
+              colorCard: Theme.of(context).colorScheme.tertiary,
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            const TitleCategoryWidget(category: 'Produtos da Padaria'),
+            ListProducts(
+                colorCard: Theme.of(context).colorScheme.primary,
+                products: MokeProdutos.products)
+          ],
         ),
       ),
     );
@@ -45,8 +87,10 @@ class HomePage extends StatelessWidget {
 }
 
 class BottomHomeNavigatorBarWidget extends StatefulWidget {
+  final PageController pageController;
   const BottomHomeNavigatorBarWidget({
     super.key,
+    required this.pageController,
   });
 
   @override
@@ -61,17 +105,25 @@ class _BottomHomeNavigatorBarWidgetState
   void setHome() {
     setState(() {
       index = 0;
+      _goPage(0);
     });
+  }
+
+  void _goPage(double index) {
+    widget.pageController.animateTo(index,
+        duration: const Duration(milliseconds: 200), curve: Curves.linear);
   }
 
   void setSearch() {
     setState(() {
       index = 1;
+      _goPage(1);
     });
   }
 
   void setShope() {
     setState(() {
+      _goPage(2);
       index = 2;
     });
   }
