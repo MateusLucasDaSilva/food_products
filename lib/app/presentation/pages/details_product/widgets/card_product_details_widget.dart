@@ -4,6 +4,7 @@ import 'package:food_products/app/domain/entities/product_entity.dart';
 import 'package:food_products/app/presentation/pages/home/widgets/name_product_widget.dart';
 import 'package:food_products/app/presentation/pages/home/widgets/price_widget.dart';
 import 'package:food_products/app/presentation/pages/home/widgets/price_with_discount_widget.dart';
+import 'package:food_products/app/presentation/shared/ui/extensions/build_context_extension.dart';
 import 'package:food_products/app/presentation/shared/ui/widgets/icon_button_widget.dart';
 
 class CardProductDetailsWidget extends StatelessWidget {
@@ -68,22 +69,20 @@ class CardProductDetailsWidget extends StatelessWidget {
                     children: <Widget>[
                       PriceWithDiscountWidget(
                         priceWithDiscount: product.toStringPriceWithDiscount,
-                        textStyle:
-                            Theme.of(context).textTheme.titleMedium?.copyWith(
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.grey,
-                                  decoration: TextDecoration.lineThrough,
-                                ),
+                        textStyle: context.textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.w700,
+                          color: Colors.grey,
+                          decoration: TextDecoration.lineThrough,
+                        ),
                       ),
                       const SizedBox(
                         width: 10,
                       ),
                       PriceWidget(
                         price: product.toStringPrice,
-                        textStyle:
-                            Theme.of(context).textTheme.titleLarge?.copyWith(
-                                  fontWeight: FontWeight.w700,
-                                ),
+                        textStyle: context.textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                       const Spacer(),
                       const IconButtonWidget(
@@ -98,9 +97,9 @@ class CardProductDetailsWidget extends StatelessWidget {
                       ),
                       Text(
                         '2Kg',
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              fontWeight: FontWeight.w600,
-                            ),
+                        style: context.textTheme.bodyMedium?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                       const SizedBox(
                         width: 5,
