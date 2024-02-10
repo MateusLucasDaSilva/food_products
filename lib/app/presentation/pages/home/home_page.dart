@@ -14,6 +14,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final PageController _pageController = PageController();
+  String title = 'Produtos';
+
+  @override
+  void initState() {
+    super.initState();
+    _listenPages();
+  }
 
   @override
   void dispose() {
@@ -21,12 +28,40 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
+  void _listenPages() {
+    WidgetsBinding.instance.addPostFrameCallback((Duration timeStamp) {
+      _pageController.addListener(() {
+        if (mounted) {
+          setState(() {
+            title = _buildTitle();
+          });
+        }
+      });
+    });
+  }
+
+  String _buildTitle() {
+    switch (_pageController.page) {
+      case 0:
+        return 'Produtos';
+      case 1:
+        return 'Pesquisa';
+      case 2:
+        return 'Compras';
+      default:
+        return '';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar:
           BottomHomeNavigatorBarWidget(pageController: _pageController),
-      appBar: const CustomAppBar(leadingIconData: Icons.menu),
+      appBar: CustomAppBar(
+        leadingIconData: Icons.menu,
+        titleText: title,
+      ),
       body: PageView(
         controller: _pageController,
         children: const <Widget>[

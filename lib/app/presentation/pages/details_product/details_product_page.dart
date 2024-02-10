@@ -82,8 +82,11 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                   children: widget.products
                       .map((ProductEntity e) => Row(
                             children: <Widget>[
-                              CardProductWidget(
-                                  product: e, colorCard: widget.colorCard),
+                              GestureDetector(
+                                onTap: () => _goToOtherProductDetail(e),
+                                child: CardProductWidget(
+                                    product: e, colorCard: widget.colorCard),
+                              ),
                               const SizedBox(
                                 width: 20,
                               ),
@@ -96,6 +99,42 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
           ),
         ),
       ),
+    );
+  }
+
+  void _goToOtherProductDetail(ProductEntity productArg) {
+    Navigator.of(context).push(
+      PageRouteBuilder<dynamic>(
+          pageBuilder: (BuildContext context, Animation<double> animation,
+              Animation<double> secondaryAnimation) {
+            return DetailsProductPage(
+              product: productArg,
+              products: const <ProductEntity>[],
+              colorCard: widget.colorCard,
+            );
+          },
+          transitionsBuilder: (BuildContext context,
+              Animation<double> animation,
+              Animation<double> secondaryAnimation,
+              Widget child) {
+            const Offset begin = Offset(0.0, 1.0);
+            const Offset end = Offset(0.0, 0.0);
+            const Curve curve = Curves.easeInOut;
+
+            final Animatable<Offset> tween =
+                Tween(begin: begin, end: end).chain(
+              CurveTween(curve: curve),
+            );
+
+            final Animation<Offset> offsetAnimation = animation.drive(tween);
+
+            return SlideTransition(
+              position: offsetAnimation,
+              child: child,
+            );
+          },
+          fullscreenDialog: true,
+          transitionDuration: const Duration(milliseconds: 300)),
     );
   }
 }
