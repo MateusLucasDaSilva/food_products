@@ -78,6 +78,5 @@ Implementação de um sistema de temas para personalização da aparência do ap
    - Envie suas mudanças:
    $ git push origin my-feature
    ```
-
 ---
 
