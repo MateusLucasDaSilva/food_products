@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
       case 2:
         return 'Compras';
       default:
-        return '';
+        return title;
     }
   }
 

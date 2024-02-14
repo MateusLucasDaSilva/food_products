@@ -43,38 +43,16 @@ class ListProducts extends StatelessWidget {
   ) {
     final List<ProductEntity> listProducts = <ProductEntity>[...products];
     listProducts.remove(product);
+
     Navigator.of(context).push(
-      PageRouteBuilder<dynamic>(
-          pageBuilder: (BuildContext context, Animation<double> animation,
-              Animation<double> secondaryAnimation) {
-            return DetailsProductPage(
-              product: product,
-              products: listProducts,
-              colorCard: colorCard,
-            );
-          },
-          transitionsBuilder: (BuildContext context,
-              Animation<double> animation,
-              Animation<double> secondaryAnimation,
-              Widget child) {
-            const Offset begin = Offset(0.0, 1.0);
-            const Offset end = Offset(0.0, 0.0);
-            const Curve curve = Curves.easeInOut;
-
-            final Animatable<Offset> tween =
-                Tween(begin: begin, end: end).chain(
-              CurveTween(curve: curve),
-            );
-
-            final Animation<Offset> offsetAnimation = animation.drive(tween);
-
-            return SlideTransition(
-              position: offsetAnimation,
-              child: child,
-            );
-          },
-          fullscreenDialog: true,
-          transitionDuration: const Duration(milliseconds: 300)),
+      MaterialPageRoute<dynamic>(
+        fullscreenDialog: true,
+        builder: (BuildContext context) => DetailsProductPage(
+          product: product,
+          products: listProducts,
+          colorCard: colorCard,
+        ),
+      ),
     );
   }
 }

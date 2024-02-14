@@ -24,8 +24,9 @@ class _BottomHomeNavigatorBarWidgetState
   }
 
   void _goPage(int index) {
-    widget.pageController.animateToPage(index,
-        duration: const Duration(milliseconds: 200), curve: Curves.linear);
+    widget.pageController.jumpToPage(
+      index,
+    );
   }
 
   void setSearch() {
