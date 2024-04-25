@@ -1,11 +1,13 @@
 targets:
   $default:
     builders:
+    
       injectable_generator|injectable_builder:
         enabled: true
         generate_for:
           include:
             - lib/**.dart
+
             
 
       injectable_generator|injectable_config_builder:
@@ -13,4 +15,13 @@ targets:
         generate_for:
           include:
             - lib/app/di/injectable.dart
- 
+
+
+      mobx_codegen|mobx_generator:
+        options:
+          hasToString: false
+        generate_for:
+          include:
+            - lib/**_store.dart
+            - lib/**_controller.dart
+            - lib/**_service.dart

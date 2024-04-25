@@ -4,6 +4,7 @@ import 'package:food_products/app/presentation/pages/home/views/products_view.da
 import 'package:food_products/app/presentation/pages/home/views/search_view.dart';
 import 'package:food_products/app/presentation/pages/home/widgets/bottom_navigator_bar_widget.dart';
 import 'package:food_products/app/presentation/shared/ui/widgets/app_bar_widget.dart';
+import 'package:food_products/app/presentation/shared/ui/widgets/background_unfocus/background_un_focus.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -62,13 +63,15 @@ class _HomePageState extends State<HomePage> {
         leadingIconData: Icons.menu,
         titleText: title,
       ),
-      body: PageView(
-        controller: _pageController,
-        children: const <Widget>[
-          ProductsView(),
-          SearchView(),
-          OptionsView(),
-        ],
+      body: BackgroundUnFocus(
+        child: PageView(
+          controller: _pageController,
+          children: const <Widget>[
+            ProductsView(),
+            SearchView(),
+            OptionsView(),
+          ],
+        ),
       ),
     );
   }

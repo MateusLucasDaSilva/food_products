@@ -48,9 +48,6 @@ class _BottomHomeNavigatorBarWidgetState
     return Container(
       height: 60,
       margin: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.black, width: .5)),
       child: Stack(
         children: <Widget>[
           AnimatedAlign(

@@ -8,11 +8,13 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.theme,
-        routes: AppRoutes.routes,
-        initialRoute: AppRoutes.initialRouter,
-        onGenerateRoute: AppRoutes.onGenerateRoute);
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.theme,
+      darkTheme: ThemeData.dark(),
+      routes: AppRoutes.routes,
+      initialRoute: AppRoutes.initialRouter,
+      onGenerateRoute: AppRoutes.onGenerateRoute,
+    );
   }
 }

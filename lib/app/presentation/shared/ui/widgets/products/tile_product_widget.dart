@@ -3,36 +3,33 @@ import 'package:food_products/app/domain/entities/product_entity.dart';
 import 'package:food_products/app/presentation/shared/ui/extensions/build_context_extension.dart';
 import 'package:food_products/app/presentation/shared/ui/widgets/icon_button_widget.dart';
 
-class ItemCartProductWidget extends StatelessWidget {
+class TileProductWidget extends StatelessWidget {
   final ProductEntity product;
-  const ItemCartProductWidget({
+  const TileProductWidget({
     super.key,
     required this.product,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey, width: 1),
-          borderRadius: BorderRadius.circular(13),
-        ),
-        child: Row(
-          children: <Widget>[
-            LeadingCardWidget(product: product),
-            const SizedBox(
-              width: 10,
-            ),
-            InfoProductWidget(product: product),
-            const Spacer(),
-            const TrailingCardWidget(),
-            const SizedBox(
-              width: 10,
-            ),
-          ],
-        ),
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey, width: 1),
+        borderRadius: BorderRadius.circular(13),
+      ),
+      child: Row(
+        children: <Widget>[
+          LeadingCardWidget(product: product),
+          const SizedBox(
+            width: 10,
+          ),
+          InfoProductWidget(product: product),
+          const Spacer(),
+          const TrailingCardWidget(),
+          const SizedBox(
+            width: 10,
+          ),
+        ],
       ),
     );
   }
