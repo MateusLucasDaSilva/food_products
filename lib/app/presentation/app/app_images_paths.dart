@@ -18,4 +18,5 @@ class AppImagesPaths {
   static const String pao_de_queijo = 'assets/images/pao_queijo.png';
   static const String farinha = 'assets/images/farinha.png';
   static const String pao = 'assets/images/pao.png';
+  static const String cesta = 'assets/images/vegetais_cesta.png';
 }

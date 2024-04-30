@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
   String _buildTitle() {
     switch (_pageController.page) {
       case 0:
-        return 'Produtos';
+        return 'Promoções';
       case 1:
         return 'Pesquisa';
       case 2:
@@ -67,9 +67,9 @@ class _HomePageState extends State<HomePage> {
         child: PageView(
           controller: _pageController,
           children: const <Widget>[
-            ProductsView(),
-            SearchView(),
             OptionsView(),
+            SearchView(),
+            ProductsView(),
           ],
         ),
       ),
